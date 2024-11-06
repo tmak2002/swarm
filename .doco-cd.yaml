@@ -1,0 +1,5 @@
+name: compose-webhook
+reference: refs/heads/main
+working_dir: nginx
+compose_files:
+  - test.compose.yaml
