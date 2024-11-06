@@ -1,6 +1,8 @@
 # NOTE: This is just for testing deployments
 services:
   app:
+    scale: 1
+    container_name: nginx
     image: nginx:latest
     environment:
       test: true
