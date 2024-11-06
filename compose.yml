@@ -1,0 +1,23 @@
+services:
+  app:
+    scale: 1
+    container_name: doco-cd
+    image: ghcr.io/kimdre/doco-cd:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      GIT_ACCESS_TOKEN_FILE: /run/secrets/git_access_token
+      WEBHOOK_SECRET_FILE: /run/secrets/webhook_secret
+    user: root
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    secrets:
+      - git_access_token
+      - webhook_secret
+
+  secrets:
+    git_access_token:
+      external: true
+    webhook_secret:
+      external: true
