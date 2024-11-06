@@ -16,8 +16,8 @@ services:
       - git_access_token
       - webhook_secret
 
-  secrets:
-    git_access_token:
-      external: true
-    webhook_secret:
-      external: true
+secrets:
+  git_access_token:
+    external: true
+  webhook_secret:
+    external: true
